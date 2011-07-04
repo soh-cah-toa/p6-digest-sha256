@@ -1,5 +1,7 @@
 module Digest::SHA256:<soh-cah-toa 0.1>;
 
+=begin
+
 =head1 NAME
 
 Digest::SHA256 - Perl 6 interface to the SHA256 algorithm
@@ -46,6 +48,8 @@ C<Digest::SHA256> was written by Kevin Polulak (a.k.a. soh_cah_toa).
 
 The SHA256 hash algorithm was designed by the National Security Agency (NSA)
 and published by the National Institute of Standards and Technology (NIST).
+
+=end
 
 =cut
 

@@ -9,7 +9,7 @@ It allows you to use the 256-bit Secure Hash Algorithm (a.k.a. SHA256).
 Source code
 ===========
 
-The source code for Digest::SHA256 is available at <http://github.com/soh-cah-toa/digest-sha256.git>
+The source code for Digest::SHA256 is available at <https://github.com/soh-cah-toa/digest-sha256>
 
 
 License

@@ -105,3 +105,5 @@ multi sub sha256_sum (@msg) is export {
     return $sha256_sum;
 }
 
+# vim: ft=perl6
+

@@ -9,3 +9,5 @@ ok(1, 'Load module');
 
 done;
 
+# vim: ft=perl6
+

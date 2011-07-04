@@ -29,3 +29,5 @@ for @list -> $msg, $digest {
 
 done;
 
+# vim: ft=perl6
+

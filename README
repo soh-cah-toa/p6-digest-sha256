@@ -1,0 +1,29 @@
+Digest::SHA256
+==============
+
+This is a Perl 6 port of the SHA256 module in Perl 6.
+
+It allows you to use the 256-bit Secure Hash Algorithm (a.k.a. SHA256).
+
+
+Source code
+===========
+
+The source code for Digest::SHA256 is available at <http://github.com/soh-cah-toa/digest-sha256.git>
+
+
+License
+=======
+
+This program is distributed under the terms of the Artistic License 2.0
+
+For further information, please see LICENSE or visit 
+<http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>
+
+
+Author
+======
+
+Kevin Polulak
+    Email: kpolulak@gmail.com
+    IRC:   soh_cah_toa

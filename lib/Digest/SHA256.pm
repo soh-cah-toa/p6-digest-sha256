@@ -83,10 +83,7 @@ multi sub sha256_hex (Str $msg) is export {
 }
 
 multi sub sha256_hex (@msg) is export {
-    my $msg        = @msg.join("");
-    my $sha256_hex = sha256_hex($msg);
-
-    return $sha256_hex;
+    return sha256_hex(@msg.join(""));
 }
 
 multi sub sha256_sum (Str $msg) is export {
@@ -105,10 +102,7 @@ multi sub sha256_sum (Str $msg) is export {
 }
 
 multi sub sha256_sum (@msg) is export {
-    my $msg        = @msg.join("");
-    my $sha256_sum = sha256_sum($msg);
-
-    return $sha256_sum;
+    return sha256_sum(@msg.join(""));
 }
 
 sub sha256_print (@sum) is export {

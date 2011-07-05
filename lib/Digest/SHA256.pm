@@ -49,6 +49,15 @@ C<Digest::SHA256> was written by Kevin Polulak (a.k.a. soh_cah_toa).
 The SHA256 hash algorithm was designed by the National Security Agency (NSA)
 and published by the National Institute of Standards and Technology (NIST).
 
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
+
+This program is distributed under the terms of the Artistic License 2.0.
+
+For further information, please see LICENSE or visit 
+<http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>.
+
 =end
 
 =cut

@@ -3,22 +3,52 @@ Digest::SHA256
 
 This is a Perl 6 port of the SHA256 module in Perl 6.
 
-It allows you to use the 256-bit Secure Hash Algorithm (a.k.a. SHA256).
+It provides a procedural interface to the 256-bit Secure Hash Algorithm (a.k.a. SHA256).
 
 
 Source code
 ===========
 
-The source code for Digest::SHA256 is available at <https://github.com/soh-cah-toa/digest-sha256>
+The source code for Digest::SHA256 is available at <https://github.com/soh-cah-toa/digest-sha256>.
+
+To obtain a local copy of the source code:
+
+    git clone git://github.com/soh-cah-toa/digest-sha256.git
 
 
-License
-=======
+Installation
+============
 
-This program is distributed under the terms of the Artistic License 2.0
+Once you've obtained a copy of the source code:
 
-For further information, please see LICENSE or visit 
-<http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>
+    ufo             # Creates Makefile
+    make            # Builds module
+    make test       # Runs test suite
+    make install    # Installs to ~/.perl6/lib
+
+If you wish to remove the files generated during the build/install process:
+
+    make clean        # Removes generated files
+    make distclean    # 'make clean' and removes Makefile
+
+
+Feedback
+========
+
+If you experience a bug, error, or just want to make a suggestion, there a several ways to get in
+contact with me.
+
+    Email: You may send an email to <kpolulak@gmail.org>. If it's about a bug, please give a
+    detailed description of what caused it, preferably with the exact output.
+
+    IRC: I can be found regularly lurking around #parrot on irc.perl.org and #perl6 on
+    irc.freenode.net where I go under the nickname "soh_cah_toa".
+
+    GitHub: You may send a private message to soh-cah-toa (note the hyphens) if you have a GitHub
+    account.
+
+If you know how to fix the problem you encountered, consider sending a patch (via 'git diff') or
+forking a clone on GitHub and submitting a Pull Request.
 
 
 Author
@@ -27,3 +57,35 @@ Author
 Kevin Polulak
     Email: kpolulak@gmail.com
     IRC:   soh_cah_toa
+
+
+Copyright and License
+=====================
+
+Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
+
+This program is distributed under the terms of the Artistic License 2.0.
+
+For further information, please see LICENSE or visit 
+<http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>.
+
+
+Disclaimer of Warranty
+======================
+
+BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE SOFTWARE, TO THE
+EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS
+AND/OR OTHER PARTIES PROVIDE THE SOFTWARE "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.
+SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR
+CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR
+ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE SOFTWARE AS PERMITTED BY THE ABOVE LICENCE,
+BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO LOSS OF DATA
+OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE
+SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED
+OF THE POSSIBILITY OF SUCH DAMAGES.
+

@@ -98,10 +98,7 @@ multi sub sha256_sum (Str $msg) is export {
         sum   = get_root_global ['parrot'; 'Digest'], '_sha256sum'
         $P0   = sum(msg)
 
-        # FIXME FixedIntegerArray has no get_string() method
-        $S0   = $P0
-
-        %r    = box $S0
+        %r    = $P0
     };
 
     return $sha256_sum;

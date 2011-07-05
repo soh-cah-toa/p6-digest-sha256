@@ -111,5 +111,16 @@ multi sub sha256_sum (@msg) is export {
     return $sha256_sum;
 }
 
+sub sha256_print (@sum) is export {
+    Q:PIR {
+        .local pmc sum, print_sum
+
+        sum       = find_lex '@sum'
+        print_sum = get_root_global ['parrot'; 'Digest'], '_sha256_print'
+
+        print_sum(sum)
+    }
+}
+
 # vim: ft=perl6
 

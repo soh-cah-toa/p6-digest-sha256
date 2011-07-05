@@ -71,10 +71,10 @@ multi sub sha256_hex (Str $msg) is export {
         msg   = find_lex '$msg'
 
         sum   = get_root_global ['parrot'; 'Digest'], '_sha256sum'
-        $P1   = sum(msg)
+        $P0   = sum(msg)
 
         hex   = get_root_global ['parrot'; 'Digest'], '_sha256_hex'
-        $S0   = hex($P1)
+        $S0   = hex($P0)
 
         %r    = box $S0
     };
@@ -96,10 +96,10 @@ multi sub sha256_sum (Str $msg) is export {
         msg   = find_lex '$msg'
 
         sum   = get_root_global ['parrot'; 'Digest'], '_sha256sum'
-        $P1   = sum(msg)
+        $P0   = sum(msg)
 
         # FIXME FixedIntegerArray has no get_string() method
-        $S0   = $P1
+        $S0   = $P0
 
         %r    = box $S0
     };

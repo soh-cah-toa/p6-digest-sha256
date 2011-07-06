@@ -64,57 +64,17 @@ For further information, please see LICENSE or visit
 
 pir::load_bytecode('Digest/sha256.pir');
 
-multi sub sha256_hex (Str $msg) is export {
-    my $sha256_hex = Q:PIR {
-        .local pmc msg, sum, hex
+my $sum   = Q:PIR { %r = get_root_global ['parrot'; 'Digest'], '_sha256sum'    };
+my $hex   = Q:PIR { %r = get_root_global ['parrot'; 'Digest'], '_sha256_hex'   };
+my $print = Q:PIR { %r = get_root_global ['parrot'; 'Digest'], '_sha256_print' };
 
-        msg   = find_lex '$msg'
+multi sub sha256_sum(Str $msg) is export { return $sum.($msg)           }
+multi sub sha256_sum(@msg)     is export { return sha256_sum(@msg.join) }
 
-        sum   = get_root_global ['parrot'; 'Digest'], '_sha256sum'
-        $P0   = sum(msg)
+multi sub sha256_hex(Str $msg) is export { return $hex.($sum.($msg))    }
+multi sub sha256_hex(@msg)     is export { return sha256_hex(@msg.join) }
 
-        hex   = get_root_global ['parrot'; 'Digest'], '_sha256_hex'
-        $S0   = hex($P0)
-
-        %r    = box $S0
-    };
-
-    return $sha256_hex;
-}
-
-multi sub sha256_hex (@msg) is export {
-    return sha256_hex(@msg.join(""));
-}
-
-multi sub sha256_sum (Str $msg) is export {
-    my $sha256_sum = Q:PIR {
-        .local pmc msg, sum
-
-        msg   = find_lex '$msg'
-
-        sum   = get_root_global ['parrot'; 'Digest'], '_sha256sum'
-        $P0   = sum(msg)
-
-        %r    = $P0
-    };
-
-    return $sha256_sum;
-}
-
-multi sub sha256_sum (@msg) is export {
-    return sha256_sum(@msg.join(""));
-}
-
-sub sha256_print (@sum) is export {
-    Q:PIR {
-        .local pmc sum, print_sum
-
-        sum       = find_lex '@sum'
-        print_sum = get_root_global ['parrot'; 'Digest'], '_sha256_print'
-
-        print_sum(sum)
-    }
-}
+      sub sha256_print(@sum)   is export { $print.(@sum)                }
 
 # vim: ft=perl6
 

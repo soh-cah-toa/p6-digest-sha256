@@ -6,6 +6,6 @@
     "authority"   : "soh-cah-toa",
     "depends"     : [],
     "source-type" : "git",
-    "source-url"  : "git://github.com/soh-cah-toa/digest-sha256.git"
+    "source-url"  : "git://github.com/soh-cah-toa/p6-digest-sha256.git"
 }
 

@@ -39,8 +39,11 @@ Calculates the SHA256 digest and returns it in hexadecimal form.
 
 =item B<sha256_sum(Str $msg)>, B<sha256_sum(@msg)>
 
-This function is still in the process of being developed. Do not bother with
-it.
+Returns an Int Array with the resulting SHA256 sum.
+
+=item B<sha256_print(Str $msg)>, B<sha256_sum(@msg)>
+
+Prints the hexadecimal representation of the SHA256 digest og the given string.
 
 =back
 

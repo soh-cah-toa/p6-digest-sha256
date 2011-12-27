@@ -3,7 +3,7 @@ use v6;
 use Test;
 use Digest::SHA256;
 
-plan 14;
+plan 19;
 
 my @str = (
     'foobar',          'c3ab8ff13720e8ad9047dd39466b3c8974e592c2fa383d4a3960714caef0c4f2',
@@ -35,6 +35,13 @@ is(sha256_sum(['fish', 'chips']), list(4010022330, 2951128356, 818387141, 167144
 is(sha256_sum(['salt', 'pepper']), list(2467830826, 1409115585, 3621403270, 1431163980, 1688474892, 65164852, 4048750178, 1828287433), 'array from list');
 is(sha256_sum(['cats', 'and', 'dogs', 'and', 'elephants']), list(3251334942, 1552458806, 1598266799, 1645003775, 2335798701, 1518402238, 3373162856, 4203707799), 'array from list');
 
+is(sha256_print("Lorem"), "1b7f8466f087c27f24e1c90017b829cd8208969018a0bbe7d9c452fa224bc6cc", 'sha256_print string value');
+is(sha256_print("Ipsum"), "5816f7ccf1564896a273b031fc0d1b04759ed70d2d02c50b3978b5a0125b0ec5", 'sha256_print string value');
+
+is(sha256_print(['cats', 'dog', 'living', 'together']), "bb8d483e467e477d056707fa890a904e2ebae6ad77ffc8faa961cbac76490e8a", 'sha256_print string value');
+is(sha256_print(['mercury', 'venus', 'earth', 'mars', 'jupiter']), "9556c3203745d3662fbd98191a06da9081afc5ec43e0094d0033d78a43231fe6", 'sha256_print string value');
+
+is(sha256_print(['the', 'answer', '2', 'LIFE', 'the', 'UNIVERSE', '&', 'everything']), sha256_hex('theanswer2LIFEtheUNIVERSE&everything'), 'list result from print matched result from string hex');
 
 done;
 

@@ -73,7 +73,7 @@ multi sub sha256_sum(Str $msg) is export {
 }
 
 multi sub sha256_sum(@msg) is export {
-	return nqp::p6box_s($PD.sha_sum(@msg.join));
+	return sha256_sum(@msg.join);
 }
 
 multi sub sha256_hex(Str $msg) is export {
@@ -82,8 +82,7 @@ multi sub sha256_hex(Str $msg) is export {
 }
 
 multi sub sha256_hex(@msg)     is export {
-	sha256_hex(@msg.join);
-	return nqp::p6box_s($PD.sha_hex());
+	return sha256_hex(@msg.join);
 }
 
 multi sub sha256_print($sum) is export {

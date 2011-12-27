@@ -69,7 +69,14 @@ pir::load_bytecode('Digest/sha256.pir');
 my $PD := Q:PIR { %r = new ['Digest';'SHA256'] };
 
 multi sub sha256_sum(Str $msg) is export {
-	return nqp::p6box_s($PD.sha_sum($msg));
+	my $FIA := $PD.sha_sum($msg);
+	my int $elems = pir::set__IP($FIA);
+	my Int @list;
+	loop (my Int $i = 0; $i < $elems; $i++) {
+		my Int $item := nqp::p6box_i(nqp::atpos($FIA, $i));
+		@list.push($item);
+	}
+	return @list;
 }
 
 multi sub sha256_sum(@msg) is export {

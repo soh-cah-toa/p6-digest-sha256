@@ -86,9 +86,13 @@ multi sub sha256_hex(@msg)     is export {
 	return nqp::p6box_s($PD.sha_hex());
 }
 
-sub sha256_print(@sum)   is export {
-	sha256_sum(@sum);
+multi sub sha256_print($sum) is export {
+	sha256_sum($sum);
 	return nqp::p6box_s($PD.sha_print());
+}
+
+multi sub sha256_print(@sum)   is export {
+	return sha256_print(@sum.join);
 }
 
 # vim: ft=perl6

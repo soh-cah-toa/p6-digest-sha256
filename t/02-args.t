@@ -3,7 +3,7 @@ use v6;
 use Test;
 use Digest::SHA256;
 
-plan 8;
+plan 14;
 
 my @str = (
     'foobar',          'c3ab8ff13720e8ad9047dd39466b3c8974e592c2fa383d4a3960714caef0c4f2',
@@ -26,6 +26,15 @@ my @list = (
 for @list -> $msg, $digest {
     is(sha256_hex($msg), $digest, 'List type arguments');
 }
+
+is(sha256_sum("foo"), list(740734059, 1761592975, 4187702588, 489701684, 323104112, 1686355872, 4186594952, 1650911150), 'correct int array created from str');
+is(sha256_sum("bar"), list(4242418478, 3685051380, 140517303, 570334044, 864882926, 1117691983, 2924810678, 2411696057), 'correct in array created from str');
+is(sha256_sum("baz"), list(3131416726, 1295196411, 3234244898, 335827912, 1363059274, 3103589751, 55051433, 1730445462), 'correct in array created from str');
+
+is(sha256_sum(['fish', 'chips']), list(4010022330, 2951128356, 818387141, 1671446482, 1987488175, 3945630504, 4085708939, 3943861802), 'array from list');
+is(sha256_sum(['salt', 'pepper']), list(2467830826, 1409115585, 3621403270, 1431163980, 1688474892, 65164852, 4048750178, 1828287433), 'array from list');
+is(sha256_sum(['cats', 'and', 'dogs', 'and', 'elephants']), list(3251334942, 1552458806, 1598266799, 1645003775, 2335798701, 1518402238, 3373162856, 4203707799), 'array from list');
+
 
 done;
 

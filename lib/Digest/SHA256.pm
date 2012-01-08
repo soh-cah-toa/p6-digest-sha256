@@ -2,7 +2,7 @@
 
 module Digest::SHA256:<soh-cah-toa 0.1>;
 
-=begin
+=begin Pod
 
 =head1 NAME
 
@@ -39,8 +39,11 @@ Calculates the SHA256 digest and returns it in hexadecimal form.
 
 =item B<sha256_sum(Str $msg)>, B<sha256_sum(@msg)>
 
-This function is still in the process of being developed. Do not bother with
-it.
+Returns an Int Array with the resulting SHA256 sum.
+
+=item B<sha256_print(Str $msg)>, B<sha256_sum(@msg)>
+
+Prints the hexadecimal representation of the SHA256 digest og the given string.
 
 =back
 
@@ -60,23 +63,46 @@ This program is distributed under the terms of the Artistic License 2.0.
 For further information, please see LICENSE or visit 
 <http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt>.
 
-=end
+=end Pod
 
 =cut
 
 pir::load_bytecode('Digest/sha256.pir');
 
-my $sum   = Q:PIR { %r = get_root_global ['parrot'; 'Digest'], '_sha256sum'    };
-my $hex   = Q:PIR { %r = get_root_global ['parrot'; 'Digest'], '_sha256_hex'   };
-my $print = Q:PIR { %r = get_root_global ['parrot'; 'Digest'], '_sha256_print' };
+my $PD := Q:PIR { %r = new ['Digest';'SHA256'] };
 
-multi sub sha256_sum(Str $msg) is export { return $sum.($msg)           }
-multi sub sha256_sum(@msg)     is export { return sha256_sum(@msg.join) }
+multi sub sha256_sum(Str $msg) is export {
+	my $FIA := $PD.sha_sum($msg);
+	my int $elems = pir::set__IP($FIA);
+	my Int @list;
+	loop (my Int $i = 0; $i < $elems; $i++) {
+		my Int $item := nqp::p6box_i(nqp::atpos($FIA, $i));
+		@list.push($item);
+	}
+	return @list;
+}
 
-multi sub sha256_hex(Str $msg) is export { return $hex.($sum.($msg))    }
-multi sub sha256_hex(@msg)     is export { return sha256_hex(@msg.join) }
+multi sub sha256_sum(@msg) is export {
+	return sha256_sum(@msg.join);
+}
 
-      sub sha256_print(@sum)   is export { $print.(@sum)                }
+multi sub sha256_hex(Str $msg) is export {
+	sha256_sum($msg);
+	return nqp::p6box_s($PD.sha_hex());
+}
+
+multi sub sha256_hex(@msg)     is export {
+	return sha256_hex(@msg.join);
+}
+
+multi sub sha256_print($sum) is export {
+	sha256_sum($sum);
+	return nqp::p6box_s($PD.sha_print());
+}
+
+multi sub sha256_print(@sum)   is export {
+	return sha256_print(@sum.join);
+}
 
 # vim: ft=perl6
 

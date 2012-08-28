@@ -1,6 +1,6 @@
 # Copyright (C) 2011, Kevin Polulak <kpolulak@gmail.com>.
 
-module Digest::SHA256:<soh-cah-toa 0.1>;
+module Digest::SHA256:auth<soh-cah-toa>:ver<0.1>;
 
 =begin Pod
 
